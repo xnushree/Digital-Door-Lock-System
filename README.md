@@ -68,45 +68,45 @@ Clock is generated with a 10 ns period. All state transitions occur on the posit
 Initialization: The system starts in reset state, FSM initializes to S0, attempts = 0, alarm = 0.
 
 Correct password sequence (1011):
-#10 in = 1;
-#10 in = 0;
-#10 in = 1;
-#10 in = 1;
+- #10 in = 1;
+- #10 in = 0;
+- #10 in = 1;
+- #10 in = 1;
 FSM transitions S0 → S1 → S2 → S3 → S4 and unlock signal goes HIGH for one clock cycle, then resets to S0.
 
 First wrong attempt:
-#10 in = 0;
-#10 in = 1;
-#10 in = 0;
+- #10 in = 0;
+- #10 in = 1;
+- #10 in = 0;
 An incorrect sequence is applied, wrong signal is triggered, attempts becomes 1.
 
 Second wrong attempt:
-#10 in = 1;
-#10 in = 1;
-#10 in = 0;
+- #10 in = 1;
+- #10 in = 1;
+- #10 in = 0;
 Another incorrect sequence, attempts becomes 2.
 
 Third wrong attempt:
-#10 in = 1;
-#10 in = 0;
-#10 in = 0;
+- #10 in = 1;
+- #10 in = 0;
+- #10 in = 0;
 Third incorrect sequence, attempts becomes 3 and alarm is triggered.
 
 FSM returns to S0, attempts reset to 0, alarm resets to 0.
 
 Overlapping sequence test:
-#10 in = 1;
-#10 in = 0;
-#10 in = 1;
-#10 in = 1;
-#10 in = 0;
-#10 in = 1;
-#10 in = 0;
-#10 in = 1;
-#10 in = 1;
-#10 in = 0;
-#10 in = 1;
-#10 in = 1;
+- #10 in = 1;
+- #10 in = 0;
+- #10 in = 1;
+- #10 in = 1;
+- #10 in = 0;
+- #10 in = 1;
+- #10 in = 0;
+- #10 in = 1;
+- #10 in = 1;
+- #10 in = 0;
+- #10 in = 1;
+- #10 in = 1;
 This tests continuous input stream handling. The FSM successfully detects valid sequences even with overlapping inputs.
 
 ---
@@ -149,3 +149,5 @@ Waveform verifies:
 ## Author
 
 Anushree Verma
+
+---
